@@ -1,0 +1,107 @@
+{
+  "name": "GBA-GCs ECCV 2026 public anonymized release",
+  "paper": "Urban Boundaries, Social Barriers: A Benchmark and Vision-Centric Framework for Mapping Gated Communities and Equity Implications",
+  "submission_id": "11296",
+  "version": "2026-06-camera-ready-anonymized",
+  "generated_at_utc": "2026-06-20T16:10:31.245301+00:00",
+  "total_aoi_all_public_files": 57070,
+  "mainland_benchmark_aoi": 46747,
+  "hk_macao_transfer_diagnostic_aoi": 10323,
+  "mainland_aoi_excluding_hong_kong_and_macao": 46747,
+  "hong_kong_aoi": 10186,
+  "macao_aoi": 137,
+  "label_counts": {
+    "open": 32846,
+    "gated": 24224
+  },
+  "city_counts": {
+    "Dongguan": 7716,
+    "Foshan": 6032,
+    "Hong Kong": 10186,
+    "Huizhou": 3249,
+    "Jiangmen": 1972,
+    "Shenzhen": 10504,
+    "Zhuhai": 2117,
+    "Zhaoqing": 1624,
+    "Zhongshan": 3348,
+    "Guangzhou": 10185,
+    "Macao": 137
+  },
+  "excluded_from_public_release": [
+    "community names",
+    "addresses",
+    "provider UIDs and OSM IDs",
+    "coordinates and AOI boundary geometries",
+    "raw satellite or aerial image chips",
+    "raw third-party provider metadata"
+  ],
+  "source_summaries": [
+    {
+      "city": "Dongguan",
+      "summary_path": "latest_GBA_DATASET/latest_DG05_dataset_no_redline/inference_summary.json",
+      "total_predictions": 7716,
+      "generated_at": "2025-11-12T06:08:11.297217Z"
+    },
+    {
+      "city": "Foshan",
+      "summary_path": "latest_GBA_DATASET/latest_FS05_dataset_no_redline/inference_summary.json",
+      "total_predictions": 6032,
+      "generated_at": "2025-11-12T06:27:32.219492Z"
+    },
+    {
+      "city": "Hong Kong",
+      "summary_path": "latest_GBA_DATASET/latest_HK05_dataset_no_redline/inference_summary.json",
+      "total_predictions": 10186,
+      "generated_at": "2025-11-12T06:44:19.702711Z"
+    },
+    {
+      "city": "Huizhou",
+      "summary_path": "latest_GBA_DATASET/latest_HZ05_dataset_no_redline/inference_summary.json",
+      "total_predictions": 3249,
+      "generated_at": "2025-11-12T06:47:22.812247Z"
+    },
+    {
+      "city": "Jiangmen",
+      "summary_path": "latest_GBA_DATASET/latest_JM05_dataset_no_redline/inference_summary.json",
+      "total_predictions": 1972,
+      "generated_at": "2025-11-12T06:49:25.537139Z"
+    },
+    {
+      "city": "Shenzhen",
+      "summary_path": "latest_GBA_DATASET/latest_SZ05_dataset_no_redline/inference_summary.json",
+      "total_predictions": 10504,
+      "generated_at": "2025-11-12T06:58:39.780825Z"
+    },
+    {
+      "city": "Zhuhai",
+      "summary_path": "latest_GBA_DATASET/latest_ZH05_dataset_no_redline/inference_summary.json",
+      "total_predictions": 2117,
+      "generated_at": "2025-11-12T07:00:51.515272Z"
+    },
+    {
+      "city": "Zhaoqing",
+      "summary_path": "latest_GBA_DATASET/latest_ZQ05_dataset_no_redline/inference_summary.json",
+      "total_predictions": 1624,
+      "generated_at": "2025-11-12T07:02:31.350720Z"
+    },
+    {
+      "city": "Zhongshan",
+      "summary_path": "latest_GBA_DATASET/latest_ZS05_dataset_no_redline/inference_summary.json",
+      "total_predictions": 3348,
+      "generated_at": "2025-11-12T07:05:34.639540Z"
+    },
+    {
+      "city": "Guangzhou",
+      "summary_path": "latest_GBA_DATASET/latest_gz05_dataset_no_redline/inference_summary.json",
+      "total_predictions": 10185,
+      "generated_at": "2025-11-12T06:36:29.935834Z"
+    },
+    {
+      "city": "Macao",
+      "summary_path": "latest_GBA_DATASET/latest_macao05_dataset_no_redline/inference_summary.json",
+      "total_predictions": 137,
+      "generated_at": "2025-11-12T06:49:52.935159Z"
+    }
+  ],
+  "missing_sample_json": []
+}

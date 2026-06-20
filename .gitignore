@@ -1,0 +1,22 @@
+.DS_Store
+__pycache__/
+*.pyc
+*.tmp
+*.log
+
+# Do not commit controlled or raw data by mistake.
+data_archives/
+guangzhou_human_labels/
+*.tar
+*.tar.gz
+*.tif
+*.tiff
+*.png
+*.jpg
+*.jpeg
+*.shp
+*.dbf
+*.shx
+*.prj
+*.gpkg
+*.geojson

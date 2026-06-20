@@ -1,0 +1,9 @@
+GBA-GCs Public Anonymized Dataset License
+
+Copyright (c) 2026 the GBA-GCs authors.
+
+This public anonymized dataset is provided for non-commercial academic research and reproducibility only. You may use, copy, and redistribute the public anonymized files for non-commercial research with attribution to the ECCV 2026 paper.
+
+You may not use the dataset for commercial purposes, residential targeting, surveillance, policing, real-estate profiling, or attempts to identify individual residential compounds or residents. You may not combine this release with external data for re-identification.
+
+Controlled components, including AOI geometries, names, addresses, provider identifiers, raw imagery, and raw provider metadata, are excluded from this public license and require a separate written data-use agreement.
