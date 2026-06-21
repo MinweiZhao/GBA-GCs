@@ -4,7 +4,7 @@ GBA-GCs is released as a maintained research dataset rather than a one-off dump.
 
 ## Versioning
 
-- `2026-06-camera-ready-anonymized`: ECCV 2026 camera-ready public anonymized release.
+- `2026-06-camera-ready-georeferenced`: ECCV 2026 camera-ready public georeferenced boundary-free release.
 - Future versions should use `YYYY-MM-description`.
 - Every version must keep a manifest with row counts, schema changes, and release exclusions.
 
@@ -12,14 +12,14 @@ GBA-GCs is released as a maintained research dataset rather than a one-off dump.
 
 Future updates may include:
 
-- additional anonymized AOI rows
+- additional georeferenced boundary-free rows
 - corrected labels after documented human verification
 - new aggregate or binned non-sensitive attributes
 - improved split files
 - model checkpoints and inference links
 - reconstruction utilities for licensed and fully open pipelines
 
-Updates must not include unrestricted names, addresses, coordinates, raw polygons, image chips, provider IDs, or raw provider metadata.
+Updates must not include unrestricted names, addresses, raw polygons, image chips, provider IDs, or raw provider metadata. Centroid coordinates and area may remain public because they support reconstruction/matching.
 
 ## Change Log Requirements
 
@@ -31,4 +31,3 @@ Each release should document:
 - changes to ethics/access policy
 - checksum changes for distributed files
 - compatibility with the MCGC model release
-

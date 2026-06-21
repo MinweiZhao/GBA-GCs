@@ -1,0 +1,6 @@
+{
+  "image_tensor": "example_image_tensor.pt",
+  "text_embedding": "optional_text_embedding.pt",
+  "numerical": "optional_numerical_features.pt",
+  "notes": "Remote-sensing image tensor is required. Text and numerical tensors may be omitted."
+}

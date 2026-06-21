@@ -1,9 +1,9 @@
 {
-  "name": "GBA-GCs ECCV 2026 public anonymized release",
+  "name": "GBA-GCs ECCV 2026 public georeferenced release",
   "paper": "Urban Boundaries, Social Barriers: A Benchmark and Vision-Centric Framework for Mapping Gated Communities and Equity Implications",
   "submission_id": "11296",
-  "version": "2026-06-camera-ready-anonymized",
-  "generated_at_utc": "2026-06-20T16:10:31.245301+00:00",
+  "version": "2026-06-camera-ready-georeferenced",
+  "generated_at_utc": "2026-06-21T09:57:39.200842+00:00",
   "total_aoi_all_public_files": 57070,
   "mainland_benchmark_aoi": 46747,
   "hk_macao_transfer_diagnostic_aoi": 10323,
@@ -31,7 +31,7 @@
     "community names",
     "addresses",
     "provider UIDs and OSM IDs",
-    "coordinates and AOI boundary geometries",
+    "AOI boundary geometries",
     "raw satellite or aerial image chips",
     "raw third-party provider metadata"
   ],
