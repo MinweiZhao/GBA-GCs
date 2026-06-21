@@ -18,7 +18,9 @@ Researchers who need the full controlled dataset should use the separate Control
 
 https://github.com/MinweiZhao/GBA-GCs-Controlled-Access
 
-The controlled access path covers non-public components that are intentionally not redistributed here, including AOI boundaries, community names, provider identifiers when present, raw remote-sensing image chips, provider-derived metadata, Guangzhou human-labeled data, and Hong Kong/Macao controlled diagnostic components. To request access, review the access policy, fill in the request form, sign the non-commercial DUA, and submit the materials to the maintainers through a private channel. Approved archives are distributed through controlled storage, not public GitHub.
+The controlled access path covers non-public components that are intentionally not redistributed here, including AOI boundaries, community names, provider identifiers when present, raw remote-sensing image chips, provider-derived metadata, Guangzhou human-labeled data, and Hong Kong/Macao controlled diagnostic components. To request access, review the access policy, fill in the request form, sign the non-commercial DUA, and submit the materials to `m.zhao@connect.hkust-gz.edu.cn`. Approved archives are distributed through controlled storage, not public GitHub.
+
+The controlled repository also includes a small de-identified `data_sample/` preview with JSON metadata, local AOI geometry, and low-resolution remote-sensing thumbnails so requesters can understand the structure of the data available after approval.
 
 ## Overview
 
@@ -90,6 +92,8 @@ For access to controlled components, use the Controlled Access repository:
 - Request form: https://github.com/MinweiZhao/GBA-GCs-Controlled-Access/blob/main/forms/ACCESS_REQUEST_FORM.md
 - DUA template: https://github.com/MinweiZhao/GBA-GCs-Controlled-Access/blob/main/docs/DUA_TEMPLATE.md
 - Manifest and checksums: https://github.com/MinweiZhao/GBA-GCs-Controlled-Access/tree/main/metadata
+- Controlled data samples: https://github.com/MinweiZhao/GBA-GCs-Controlled-Access/tree/main/data_sample
+- Contact: `m.zhao@connect.hkust-gz.edu.cn`
 
 ## MCGC Reference Model
 
