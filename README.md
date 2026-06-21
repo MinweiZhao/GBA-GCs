@@ -10,6 +10,16 @@ This repository contains the public, ethics-first release for the ECCV 2026 prov
 
 The public dataset provides gated/open labels, centroid coordinates, area, and coarse non-identifying attributes for **46,747** mainland residential AOIs in China's Greater Bay Area. Hong Kong and Macao are provided as a separate **10,323** AOI transfer-diagnostic file, not mixed into the mainland benchmark. The release is designed to support benchmark transparency and reconstruction while reducing risks from releasing precise residential boundaries, addresses, community names, raw map-provider metadata, or imagery.
 
+## Access Tiers
+
+This repository is the main public entry point for GBA-GCs. It hosts the unrestricted anonymized release, public documentation, reconstruction workflows, reference model API, and the public MCGC checkpoint.
+
+Researchers who need the full controlled dataset should use the separate Controlled Access repository:
+
+https://github.com/MinweiZhao/GBA-GCs-Controlled-Access
+
+The controlled access path covers non-public components that are intentionally not redistributed here, including AOI boundaries, community names, provider identifiers when present, raw remote-sensing image chips, provider-derived metadata, Guangzhou human-labeled data, and Hong Kong/Macao controlled diagnostic components. To request access, review the access policy, fill in the request form, sign the non-commercial DUA, and submit the materials to the maintainers through a private channel. Approved archives are distributed through controlled storage, not public GitHub.
+
 ## Overview
 
 GBA-GCs is a public, boundary-free release built from the paper dataset and optimized for continued maintenance. It exposes enough spatial information for reproducible reconstruction and model auditing, while withholding raw AOI polygons, names, addresses, provider IDs, imagery, and provider-owned metadata.
@@ -71,7 +81,15 @@ If you use this release, cite the ECCV 2026 paper above. A BibTeX entry will be 
 
 ## License And Access
 
-This public georeferenced release is provided for non-commercial research and reproducibility. Controlled components, including AOI boundaries, names, raw imagery, and provider metadata, are not redistributed in this public repository.
+This public georeferenced release is provided for non-commercial research and reproducibility. Controlled components, including AOI boundaries, names, raw imagery, provider metadata, and human-labeled controlled subsets, are not redistributed in this public repository.
+
+For access to controlled components, use the Controlled Access repository:
+
+- Request portal: https://github.com/MinweiZhao/GBA-GCs-Controlled-Access
+- Access policy: https://github.com/MinweiZhao/GBA-GCs-Controlled-Access/blob/main/docs/ACCESS_POLICY.md
+- Request form: https://github.com/MinweiZhao/GBA-GCs-Controlled-Access/blob/main/forms/ACCESS_REQUEST_FORM.md
+- DUA template: https://github.com/MinweiZhao/GBA-GCs-Controlled-Access/blob/main/docs/DUA_TEMPLATE.md
+- Manifest and checksums: https://github.com/MinweiZhao/GBA-GCs-Controlled-Access/tree/main/metadata
 
 ## MCGC Reference Model
 
