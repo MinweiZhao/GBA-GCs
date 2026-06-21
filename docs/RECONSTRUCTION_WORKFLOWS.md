@@ -6,9 +6,9 @@ This document describes two ways to reconstruct benchmark-compatible inputs with
 
 The public release is an anonymized benchmark table. It is expanded and optimized from the dataset used in the ECCV 2026 paper and will be maintained as an evolving research resource. Versioned updates may add model checkpoints, evaluation scripts, new non-sensitive aggregate fields, and improved reconstruction utilities.
 
-## Workflow A: Licensed AOI Reconstruction With Controlled Crosswalk
+## Workflow A: Licensed Baidu/Amap AOI Reconstruction With Controlled Crosswalk
 
-This workflow is for researchers who have their own licensed access to Baidu Maps, Amap, Google Earth, or equivalent imagery providers.
+This workflow is for researchers who have their own licensed access to Baidu Maps, Amap, Google Earth, or equivalent imagery providers. It is the closest path to reconstructing the paper-style AOI inputs, but it is not an unrestricted public-data workflow because exact AOI geometries and provider records are governed by the requester's provider agreements.
 
 The public `aoi_id` values are stable anonymous identifiers. They do not encode names, coordinates, provider IDs, or geometry. Reconstructing exact paper AOIs therefore requires a controlled crosswalk file distributed only under a non-commercial data-use agreement.
 
@@ -25,12 +25,24 @@ The public `aoi_id` values are stable anonymous identifiers. They do not encode 
   - checksum of the expected geometry record
 - Researcher's own API credentials and provider terms permitting AOI retrieval and imagery use.
 
-### Steps
+### Provider Access Setup
+
+1. Register a Baidu Maps Open Platform or Amap developer account.
+2. Create a server-side API key with access to the relevant POI/AOI search endpoints allowed by your account and local terms.
+3. Record the API product, date, quota, and terms-of-service version used for reconstruction.
+4. Do not commit API keys, provider IDs, raw provider responses, names, addresses, or coordinates to a public repository.
+
+### Reconstruction Steps
 
 1. Join the public CSV with the controlled crosswalk on `aoi_id`.
-2. Query the licensed map provider for AOI polygons and permitted metadata.
-3. Download or prepare imagery using the requester's own licensed imagery source.
-4. Convert each AOI to the model input schema:
+2. For each row, query the licensed provider using the approved crosswalk key or query tuple.
+3. Validate the returned AOI record:
+   - city matches the expected city
+   - geometry is valid
+   - provider response checksum matches the controlled manifest when a checksum is supplied
+   - duplicate provider records are resolved by the documented rule in the DUA package
+4. Download or prepare imagery using the requester's own licensed imagery source.
+5. Convert each AOI to the model input schema:
 
 ```text
 aoi_id
@@ -43,7 +55,35 @@ label
 split
 ```
 
-5. Run the released MCGC preprocessing and inference code when the model repository is published.
+6. Run the released MCGC preprocessing and inference code when the model repository is published.
+
+### Suggested Local Directory
+
+```text
+licensed_reconstruction/
+  private_crosswalk.csv          # controlled, never public
+  provider_responses/            # controlled, never public
+  aoi_geometries/                # controlled, never public
+  image_tiles/                   # controlled, never public unless license permits
+  model_inputs.jsonl
+  predictions.csv
+  reconstruction_report.md
+```
+
+### Minimal Pseudocode
+
+```python
+public = read_csv("data/gba_gcs_mainland_anonymized_aoi_labels.csv")
+crosswalk = read_controlled_crosswalk("private_crosswalk.csv")
+rows = join(public, crosswalk, on="aoi_id")
+
+for row in rows:
+    provider_record = query_provider(row["provider_query_key"], api_key=BAIDU_OR_AMAP_KEY)
+    geometry = validate_geometry(provider_record, expected_city=row["city"])
+    image = fetch_licensed_image_tile(geometry, buffer_m=50)
+    features = build_structured_features(geometry, provider_record)
+    write_model_input(row["aoi_id"], geometry, image, features)
+```
 
 ### Ethics And Redistribution
 
@@ -95,6 +135,35 @@ split_optional
 7. Run MCGC inference after the model checkpoint and inference scripts are released.
 8. Treat outputs as model predictions requiring local validation, not as universal ground truth.
 
+### Recommended Open-Source Stack
+
+- `osmnx` / `geopandas` / `shapely` for OSM extraction and polygon cleaning.
+- `earthengine-api` or `geemap` for GEE imagery export.
+- `rasterio` / `rio-tiler` for local tile normalization.
+- the released MCGC model repository for preprocessing and inference.
+
+### Minimal Pseudocode
+
+```python
+import osmnx as ox
+import geopandas as gpd
+
+city_boundary = load_open_boundary("Guangzhou")
+residential = ox.features_from_polygon(
+    city_boundary.geometry.iloc[0],
+    tags={"landuse": "residential"},
+)
+aois = clean_and_filter_residential_polygons(residential)
+tiles = export_gee_tiles(aois, buffer_m=50, output_dir="image_tiles")
+features = build_osm_features(aois)
+write_model_inputs(aois, tiles, features, output="model_inputs.jsonl")
+run_mcgc_inference("model_inputs.jsonl", checkpoint="mcgc.pt")
+```
+
+### Output Status
+
+Outputs from this workflow should be labeled as `open_reconstruction_prediction`, not as the original GBA-GCs labels. The workflow is intended to support fully open, reproducible dataset creation in new cities or under stricter licensing constraints.
+
 ### Recommended Output Files
 
 ```text
@@ -116,4 +185,3 @@ The public dataset repository will remain focused on dataset metadata, anonymize
 - evaluation scripts
 - model cards and intended-use restrictions
 - checkpoint hashes
-
