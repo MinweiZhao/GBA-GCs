@@ -77,11 +77,24 @@ This public georeferenced release is provided for non-commercial research and re
 
 The `model/` folder contains a reference MCGC inference API. Remote-sensing imagery is required at inference time. Text and numerical features are optional and may be omitted through modality masks.
 
-The ECCV 2026 MCGC checkpoint is distributed through GitHub Releases, not committed into the repository:
+### Download Checkpoint
+
+The ECCV 2026 MCGC checkpoint has been uploaded to GitHub Releases. The checkpoint is not committed into the repository because it is a large binary model file.
 
 - Release: https://github.com/MinweiZhao/GBA-GCs/releases/tag/v2026-06-mcgc
+- Direct download: https://github.com/MinweiZhao/GBA-GCs/releases/download/v2026-06-mcgc/trimodal_io_fused_gba_full.pth
 - Asset: `trimodal_io_fused_gba_full.pth`
+- Size: 1,716,771,558 bytes
 - SHA-256: `48518dafd9b2e2702db812ae9977bc6699bbc2e55c4a8044bd7d993114ebb1b8`
+
+Download and verify:
+
+```bash
+curl -L -o trimodal_io_fused_gba_full.pth \
+  https://github.com/MinweiZhao/GBA-GCs/releases/download/v2026-06-mcgc/trimodal_io_fused_gba_full.pth
+
+sha256sum trimodal_io_fused_gba_full.pth
+```
 
 See `model/CHECKPOINTS.md` and `model/MODEL_CARD.md` before use.
 
@@ -97,6 +110,8 @@ MCGC inputs:
 - optional masks: `has_text`, `has_numerical`; visual imagery cannot be missing
 
 The paper model uses a DINOv3-SAT visual backbone with LoRA adaptation, an optional text encoder, structured-feature MLP, inner/outer visual context, and cross-modal community-aware fusion. The lightweight implementation in `model/mcgc_reference.py` is an API-compatible reference for downstream callers.
+
+Use of the checkpoint is limited to non-commercial research, reproducibility, benchmarking, and aggregate urban-science analysis. It is not intended for surveillance, policing, geofencing, commercial real-estate scoring, resident-level profiling, targeted enforcement, or per-compound public lookup systems.
 
 Minimal call:
 

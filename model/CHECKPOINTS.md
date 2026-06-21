@@ -5,11 +5,19 @@ The trained MCGC checkpoint is distributed through GitHub Releases rather than c
 ## ECCV 2026 Checkpoint
 
 - Release: https://github.com/MinweiZhao/GBA-GCs/releases/tag/v2026-06-mcgc
+- Direct download: https://github.com/MinweiZhao/GBA-GCs/releases/download/v2026-06-mcgc/trimodal_io_fused_gba_full.pth
 - Asset: `trimodal_io_fused_gba_full.pth`
-- Size: approximately 1.6 GB
+- Size: 1,716,771,558 bytes
 - SHA-256: `48518dafd9b2e2702db812ae9977bc6699bbc2e55c4a8044bd7d993114ebb1b8`
 - Associated public data version: `2026-06-public-georeferenced`
 - Associated controlled documentation repository: https://github.com/MinweiZhao/GBA-GCs-Controlled-Access
+
+Download:
+
+```bash
+curl -L -o trimodal_io_fused_gba_full.pth \
+  https://github.com/MinweiZhao/GBA-GCs/releases/download/v2026-06-mcgc/trimodal_io_fused_gba_full.pth
+```
 
 Verify after download:
 

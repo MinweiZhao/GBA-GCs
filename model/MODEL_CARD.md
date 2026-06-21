@@ -29,8 +29,9 @@ The public reference API supports missing optional modalities through `has_text`
 The ECCV 2026 checkpoint is distributed as a GitHub Release asset:
 
 - Release: https://github.com/MinweiZhao/GBA-GCs/releases/tag/v2026-06-mcgc
+- Direct download: https://github.com/MinweiZhao/GBA-GCs/releases/download/v2026-06-mcgc/trimodal_io_fused_gba_full.pth
 - Asset: `trimodal_io_fused_gba_full.pth`
-- Size: approximately 1.6 GB
+- Size: 1,716,771,558 bytes
 - SHA-256: `48518dafd9b2e2702db812ae9977bc6699bbc2e55c4a8044bd7d993114ebb1b8`
 
 Verify the checksum after download before using the checkpoint.
