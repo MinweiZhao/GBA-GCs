@@ -4,11 +4,13 @@ This repository contains the public, ethics-first release for the ECCV 2026 prov
 
 **Urban Boundaries, Social Barriers: A Benchmark and Vision-Centric Framework for Mapping Gated Communities and Equity Implications** (Submission #11296).
 
+This repository is a maintained release built from the ECCV paper dataset and further refined after acceptance. The paper reports the original benchmark and experiments; this public repository extends the release with additional non-sensitive AOI records and a separate Hong Kong/Macao diagnostic table for community use.
+
 <p align="center">
   <img src="assets/teaser_figure_eccv_2.png" alt="GBA-GCs teaser figure" width="95%">
 </p>
 
-The public dataset provides gated/open labels, centroid coordinates, area, and coarse non-identifying attributes for **46,747** mainland residential AOIs in China's Greater Bay Area. Hong Kong and Macao are provided as a separate **10,323** AOI transfer-diagnostic file, not mixed into the mainland benchmark. The release is designed to support benchmark transparency and reconstruction while reducing risks from releasing precise residential boundaries, addresses, community names, raw map-provider metadata, or imagery.
+The current public dataset provides gated/open labels, centroid coordinates, area, and coarse non-identifying attributes for **46,747** mainland residential AOIs in China's Greater Bay Area. Hong Kong and Macao are provided as a separate **10,323** AOI transfer-diagnostic file, not mixed into the paper benchmark. The release is designed to support benchmark transparency and reconstruction while reducing risks from releasing precise residential boundaries, addresses, community names, raw map-provider metadata, or imagery.
 
 ## Access Tiers
 
@@ -24,7 +26,7 @@ The controlled repository also includes a small de-identified `data_sample/` pre
 
 ## Overview
 
-GBA-GCs is a public, boundary-free release built from the paper dataset and optimized for continued maintenance. It exposes enough spatial information for reproducible reconstruction and model auditing, while withholding raw AOI polygons, names, addresses, provider IDs, imagery, and provider-owned metadata.
+GBA-GCs is a public, boundary-free release built from the paper dataset and optimized for continued maintenance. Compared with the original ECCV paper benchmark, this repository may include expanded AOI coverage, improved documentation, model releases, and reconstruction utilities. It exposes enough spatial information for reproducible reconstruction and model auditing, while withholding raw AOI polygons, names, addresses, provider IDs, imagery, and provider-owned metadata.
 
 <p align="center">
   <img src="assets/mcgc_pipeline.png" alt="MCGC dataset and model pipeline" width="95%">

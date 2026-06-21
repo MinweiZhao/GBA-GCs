@@ -8,6 +8,10 @@ GBA-GCs public georeferenced release, version `2026-06-camera-ready-georeference
 
 The dataset supports reproducible research on recognizing Chinese `fengbi xiaoqu` / gated residential compounds and studying aggregate spatial equity patterns without exposing precise residential boundaries or direct identifiers in the public release. Centroid coordinates and area are provided to support reconstruction with licensed map APIs or open OSM/GEE workflows.
 
+## Version Relationship To The ECCV Paper
+
+The ECCV paper reports the original benchmark and experiments. This repository is the maintained public release based on that paper dataset and further refined after acceptance. The current release expands the non-sensitive mainland AOI table to 46,747 records and adds a separate Hong Kong/Macao diagnostic table for community use and reconstruction testing.
+
 ## Composition
 
 - Mainland benchmark rows: 46,747
