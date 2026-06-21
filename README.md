@@ -4,7 +4,19 @@ This repository contains the public, ethics-first release for the ECCV 2026 prov
 
 **Urban Boundaries, Social Barriers: A Benchmark and Vision-Centric Framework for Mapping Gated Communities and Equity Implications** (Submission #11296).
 
+<p align="center">
+  <img src="assets/teaser_figure_eccv_2.png" alt="GBA-GCs teaser figure" width="95%">
+</p>
+
 The public dataset provides gated/open labels, centroid coordinates, area, and coarse non-identifying attributes for **46,747** mainland residential AOIs in China's Greater Bay Area. Hong Kong and Macao are provided as a separate **10,323** AOI transfer-diagnostic file, not mixed into the mainland benchmark. The release is designed to support benchmark transparency and reconstruction while reducing risks from releasing precise residential boundaries, addresses, community names, raw map-provider metadata, or imagery.
+
+## Overview
+
+GBA-GCs is a public, boundary-free release built from the paper dataset and optimized for continued maintenance. It exposes enough spatial information for reproducible reconstruction and model auditing, while withholding raw AOI polygons, names, addresses, provider IDs, imagery, and provider-owned metadata.
+
+<p align="center">
+  <img src="assets/mcgc_pipeline.png" alt="MCGC dataset and model pipeline" width="95%">
+</p>
 
 ## Files
 
@@ -17,8 +29,19 @@ The public dataset provides gated/open labels, centroid coordinates, area, and c
 - `docs/DATA_USE_AGREEMENT_TEMPLATE.md`: template for controlled non-commercial access requests.
 - `docs/RECONSTRUCTION_WORKFLOWS.md`: Baidu/Amap and OSM/GEE reconstruction workflows.
 - `model/`: reference MCGC inference API and model card.
+- `model/CHECKPOINTS.md`: released checkpoint links, hashes, and use restrictions.
 - `examples/`: minimal MCGC inference example.
 - `code/README.md`: code and reconstruction notes.
+- `assets/`: paper figures used for repository documentation.
+
+## Projection And Source Notes
+
+- Public coordinates are WGS84 longitude/latitude (`EPSG:4326`).
+- `centroid_lon` and `centroid_lat` are AOI centroids, not AOI boundaries.
+- `area_m2` is the AOI area in square meters from the projected/source AOI record.
+- Mainland rows use provider-record WGS84 centroid fields when available.
+- Hong Kong/Macao rows did not consistently include WGS84 centroid fields locally; their public centroids were computed from controlled projected AOI geometries and transformed from UTM Zone 50N (`EPSG:32650`) to WGS84.
+- Controlled raw records may contain provider metadata such as community names, addresses, administrative fields, tags, provider IDs, AOI polygons, raster source names, and image metadata. These are not redistributed in this public repository.
 
 ## Public Schema
 
@@ -52,4 +75,33 @@ This public georeferenced release is provided for non-commercial research and re
 
 ## MCGC Reference Model
 
-The `model/` folder contains a reference MCGC inference API. Remote-sensing imagery is required at inference time. Text and numerical features are optional and may be omitted through modality masks. Large trained checkpoints are not committed directly to this data repository; checkpoint links and hashes should be distributed through GitHub Releases or controlled storage when finalized.
+The `model/` folder contains a reference MCGC inference API. Remote-sensing imagery is required at inference time. Text and numerical features are optional and may be omitted through modality masks.
+
+The ECCV 2026 MCGC checkpoint is distributed through GitHub Releases, not committed into the repository:
+
+- Release: https://github.com/MinweiZhao/GBA-GCs/releases/tag/v2026-06-mcgc
+- Asset: `mcgc_trimodal_io_fused_gba_full.pth`
+- SHA-256: `48518dafd9b2e2702db812ae9977bc6699bbc2e55c4a8044bd7d993114ebb1b8`
+
+See `model/CHECKPOINTS.md` and `model/MODEL_CARD.md` before use.
+
+<p align="center">
+  <img src="assets/ccf_block.png" alt="MCGC cross-modal fusion block" width="70%">
+</p>
+
+MCGC inputs:
+
+- required: remote-sensing image tile, typically cropped around the reconstructed AOI with context buffer
+- optional: text metadata embedding, e.g. name/tag/address descriptions when licensed and available
+- optional: numerical/structured features, e.g. area, FAR, POI density, POI count
+- optional masks: `has_text`, `has_numerical`; visual imagery cannot be missing
+
+The paper model uses a DINOv3-SAT visual backbone with LoRA adaptation, an optional text encoder, structured-feature MLP, inner/outer visual context, and cross-modal community-aware fusion. The lightweight implementation in `model/mcgc_reference.py` is an API-compatible reference for downstream callers.
+
+Minimal call:
+
+```bash
+PYTHONPATH=. python examples/run_mcgc_inference.py \
+  --image_tensor example_image_tensor.pt \
+  --output prediction.json
+```
