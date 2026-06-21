@@ -80,7 +80,7 @@ The `model/` folder contains a reference MCGC inference API. Remote-sensing imag
 The ECCV 2026 MCGC checkpoint is distributed through GitHub Releases, not committed into the repository:
 
 - Release: https://github.com/MinweiZhao/GBA-GCs/releases/tag/v2026-06-mcgc
-- Asset: `mcgc_trimodal_io_fused_gba_full.pth`
+- Asset: `trimodal_io_fused_gba_full.pth`
 - SHA-256: `48518dafd9b2e2702db812ae9977bc6699bbc2e55c4a8044bd7d993114ebb1b8`
 
 See `model/CHECKPOINTS.md` and `model/MODEL_CARD.md` before use.

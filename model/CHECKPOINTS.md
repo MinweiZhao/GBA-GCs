@@ -5,7 +5,7 @@ The trained MCGC checkpoint is distributed through GitHub Releases rather than c
 ## ECCV 2026 Checkpoint
 
 - Release: https://github.com/MinweiZhao/GBA-GCs/releases/tag/v2026-06-mcgc
-- Asset: `mcgc_trimodal_io_fused_gba_full.pth`
+- Asset: `trimodal_io_fused_gba_full.pth`
 - Size: approximately 1.6 GB
 - SHA-256: `48518dafd9b2e2702db812ae9977bc6699bbc2e55c4a8044bd7d993114ebb1b8`
 - Associated public data version: `2026-06-public-georeferenced`
@@ -14,13 +14,13 @@ The trained MCGC checkpoint is distributed through GitHub Releases rather than c
 Verify after download:
 
 ```bash
-sha256sum mcgc_trimodal_io_fused_gba_full.pth
+sha256sum trimodal_io_fused_gba_full.pth
 ```
 
 The checksum must match:
 
 ```text
-48518dafd9b2e2702db812ae9977bc6699bbc2e55c4a8044bd7d993114ebb1b8  mcgc_trimodal_io_fused_gba_full.pth
+48518dafd9b2e2702db812ae9977bc6699bbc2e55c4a8044bd7d993114ebb1b8  trimodal_io_fused_gba_full.pth
 ```
 
 ## Input Contract
