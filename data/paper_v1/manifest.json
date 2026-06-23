@@ -1,0 +1,42 @@
+{
+  "name": "GBA-GCs paper_v1 public georeferenced release",
+  "version": "paper_v1_eccv2026_37444_public_georeferenced",
+  "created_utc": "2026-06-23",
+  "relationship_to_paper": "This is the public, boundary-free, stable GitHub table matching the ECCV 2026 paper benchmark count of 37,444 mainland GBA AOIs. The exact controlled metadata, AOI geometries, and imagery remain available only through the controlled-access DUA workflow.",
+  "source_table": "data/gba_gcs_mainland_public_georeferenced.csv",
+  "selection": "Deterministic city-proportional stable subset from the maintained mainland public table; selected by SHA-256(aoi_id|paper_v1).",
+  "rows": 37444,
+  "cities": {
+    "Dongguan": 6180,
+    "Foshan": 4832,
+    "Guangzhou": 8158,
+    "Huizhou": 2602,
+    "Jiangmen": 1579,
+    "Shenzhen": 8414,
+    "Zhaoqing": 1301,
+    "Zhongshan": 2682,
+    "Zhuhai": 1696
+  },
+  "files": [
+    {
+      "path": "data/paper_v1/gba_gcs_paper_v1_public_georeferenced.csv",
+      "rows": 37444,
+      "sha256": "240409f037930fabc37da1498d930304acdaa02e53df40e7c7dd7cebf5aa43c0"
+    },
+    {
+      "path": "data/paper_v1/paper_v1_city_summary.csv",
+      "rows": 9,
+      "sha256": "f605a69d16562cc74008121d3dbc65eae682b8f53411d1b7336f9b6222fcc3c5"
+    }
+  ],
+  "public_exclusions": [
+    "AOI polygons/geometries",
+    "raw coordinates beyond centroids",
+    "community names",
+    "addresses",
+    "provider IDs",
+    "raw imagery",
+    "provider-owned metadata"
+  ],
+  "license_note": "Public boundary-free table for non-commercial research and reproducibility; controlled components require DUA."
+}

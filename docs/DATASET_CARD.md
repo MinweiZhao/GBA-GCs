@@ -2,7 +2,11 @@
 
 ## Dataset
 
-GBA-GCs public georeferenced release, version `2026-06-camera-ready-georeferenced`.
+GBA-GCs public georeferenced release.
+
+Primary paper version: `paper_v1_eccv2026_37444_public_georeferenced`.
+
+Maintained expanded version: `2026-06-camera-ready-georeferenced`.
 
 ## Motivation
 
@@ -10,11 +14,14 @@ The dataset supports reproducible research on recognizing Chinese `fengbi xiaoqu
 
 ## Version Relationship To The ECCV Paper
 
-The ECCV paper reports the original benchmark and experiments. This repository is the maintained public release based on that paper dataset and further refined after acceptance. The current release expands the non-sensitive mainland AOI table to 46,747 records and adds a separate Hong Kong/Macao diagnostic table for community use and reconstruction testing.
+The ECCV paper reports the original 37,444-AOI mainland GBA benchmark and experiments. For stable citation and camera-ready compliance, the public paper-count table is provided under `data/paper_v1/`.
+
+This repository is also maintained after acceptance. The maintained release expands the non-sensitive mainland AOI table to 46,747 records and adds a separate Hong Kong/Macao diagnostic table for community use and reconstruction testing. These maintained extensions should be reported separately from the paper's fixed benchmark.
 
 ## Composition
 
-- Mainland benchmark rows: 46,747
+- Paper-count public benchmark rows: 37,444 mainland GBA AOIs (`data/paper_v1/`)
+- Maintained mainland public rows: 46,747
 - Separate Hong Kong/Macao transfer-diagnostic rows: 10,323
 - Total public rows across both CSV files: 57,070
 - Hong Kong diagnostic rows: 10,186

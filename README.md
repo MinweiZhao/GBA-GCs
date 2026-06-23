@@ -4,13 +4,15 @@ This repository contains the public, ethics-first release for the ECCV 2026 prov
 
 **Urban Boundaries, Social Barriers: A Benchmark and Vision-Centric Framework for Mapping Gated Communities and Equity Implications** (Submission #11296).
 
-This repository is a maintained release built from the ECCV paper dataset and further refined after acceptance. The paper reports the original benchmark and experiments; this public repository extends the release with additional non-sensitive AOI records and a separate Hong Kong/Macao diagnostic table for community use.
+This repository is a maintained release built from the ECCV paper dataset and further refined after acceptance.
+
+**Version note.** The ECCV paper reports the original **37,444-AOI mainland GBA benchmark**. For stable citation and camera-ready compliance, this repository now provides a paper-count public version at `data/paper_v1/`. The main public CSV remains a maintained/expanded release with additional non-sensitive AOI records, and Hong Kong/Macao are provided separately as diagnostic transfer tables. Paper results should be compared against the `paper_v1` benchmark description, while newer repository files should be treated as maintained extensions.
 
 <p align="center">
   <img src="assets/teaser_figure_eccv_2.png" alt="GBA-GCs teaser figure" width="95%">
 </p>
 
-The current public dataset provides gated/open labels, centroid coordinates, area, and coarse non-identifying attributes for **46,747** mainland residential AOIs in China's Greater Bay Area. Hong Kong and Macao are provided as a separate **10,323** AOI transfer-diagnostic file, not mixed into the paper benchmark. The release is designed to support benchmark transparency and reconstruction while reducing risks from releasing precise residential boundaries, addresses, community names, raw map-provider metadata, or imagery.
+The public release provides gated/open labels, centroid coordinates, area, and coarse non-identifying attributes. The frozen paper-count table contains **37,444** mainland residential AOIs in China's Greater Bay Area. The maintained mainland table currently contains **46,747** AOIs, and Hong Kong/Macao are provided as a separate **10,323** AOI transfer-diagnostic file, not mixed into the paper benchmark. The release is designed to support benchmark transparency and reconstruction while reducing risks from releasing precise residential boundaries, addresses, community names, raw map-provider metadata, or imagery.
 
 ## Access Tiers
 
@@ -34,6 +36,9 @@ GBA-GCs is a public, boundary-free release built from the paper dataset and opti
 
 ## Files
 
+- `data/paper_v1/gba_gcs_paper_v1_public_georeferenced.csv`: stable public paper-count table for the ECCV 2026 benchmark release (**37,444** mainland GBA AOIs).
+- `data/paper_v1/manifest.json`: checksums and relationship between `paper_v1`, the maintained public table, and controlled access.
+- `data/paper_v1/paper_v1_city_summary.csv`: city-level summary for the stable paper-count public table.
 - `data/gba_gcs_mainland_public_georeferenced.csv`: georeferenced boundary-free labels and coarse attribute bins for the mainland GBA benchmark.
 - `data/hk_macao_transfer_diagnostics_public_georeferenced.csv`: separate georeferenced Hong Kong and Macao transfer-diagnostic rows.
 - `metadata/city_summary.csv`: city-level counts.
@@ -75,7 +80,9 @@ Each row is a georeferenced public record. The release includes centroid coordin
 
 ## Counts
 
-Mainland benchmark AOIs: **46,747**.
+Paper-count stable public table: **37,444** mainland AOIs (`data/paper_v1/`).
+
+Maintained mainland public table: **46,747** mainland AOIs.
 
 Hong Kong/Macao transfer-diagnostic AOIs: **10,323**.
 
