@@ -1,0 +1,103 @@
+{
+  "name": "GBA-GCs Guangzhou official benchmark splits",
+  "description": "Five fixed stratified 8:2 train/test splits with 10% validation sampled from the training pool, matching Supplementary Sec. D.4 of the ECCV 2026 camera-ready paper.",
+  "files": [
+    "guangzhou_split_1.json",
+    "guangzhou_split_2.json",
+    "guangzhou_split_3.json",
+    "guangzhou_split_4.json",
+    "guangzhou_split_5.json",
+    "guangzhou_split_summary.csv",
+    "guangzhou_split_stratum_summary.csv"
+  ],
+  "source_public_labels": "../guangzhou_human_eval_public_labels.csv",
+  "total_records": 5268,
+  "label_counts": {
+    "open": 2663,
+    "gated": 2605
+  },
+  "split_seeds": [
+    1129601,
+    1129602,
+    1129603,
+    1129604,
+    1129605
+  ],
+  "global_training_seed": 42,
+  "area_quantiles_used_internal_not_raw_release": {
+    "0.0": 101.676539,
+    "0.1": 747.461864,
+    "0.2": 1637.322941,
+    "0.3": 2893.36359,
+    "0.4": 4465.561094,
+    "0.5": 7102.73343,
+    "0.6": 10948.298292,
+    "0.7": 17610.380036,
+    "0.8": 30392.624362,
+    "0.9": 58939.819476,
+    "1.0": 6320307.137643
+  },
+  "geo_cluster_centers_wgs84": [
+    {
+      "cluster": 0,
+      "centroid_lon": 113.203653,
+      "centroid_lat": 23.405695
+    },
+    {
+      "cluster": 1,
+      "centroid_lon": 113.372842,
+      "centroid_lat": 23.134692
+    },
+    {
+      "cluster": 2,
+      "centroid_lon": 113.291868,
+      "centroid_lat": 23.228032
+    },
+    {
+      "cluster": 3,
+      "centroid_lon": 113.577894,
+      "centroid_lat": 23.260387
+    },
+    {
+      "cluster": 4,
+      "centroid_lon": 113.518289,
+      "centroid_lat": 22.783756
+    },
+    {
+      "cluster": 5,
+      "centroid_lon": 113.569045,
+      "centroid_lat": 23.126209
+    },
+    {
+      "cluster": 6,
+      "centroid_lon": 113.26183,
+      "centroid_lat": 23.124705
+    },
+    {
+      "cluster": 7,
+      "centroid_lon": 113.427872,
+      "centroid_lat": 23.444139
+    },
+    {
+      "cluster": 8,
+      "centroid_lon": 113.327192,
+      "centroid_lat": 23.027678
+    },
+    {
+      "cluster": 9,
+      "centroid_lon": 113.384117,
+      "centroid_lat": 22.941239
+    },
+    {
+      "cluster": 10,
+      "centroid_lon": 113.809299,
+      "centroid_lat": 23.271629
+    },
+    {
+      "cluster": 11,
+      "centroid_lon": 113.592249,
+      "centroid_lat": 23.570433
+    }
+  ],
+  "privacy_note": "Split files contain anonymous public record IDs only. Raw AOI polygons, names, addresses, provider IDs, imagery, and provider metadata are not included."
+}

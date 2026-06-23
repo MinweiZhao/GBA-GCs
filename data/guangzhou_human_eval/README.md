@@ -4,6 +4,8 @@ This folder provides the public anonymized label file for the Guangzhou expert e
 
 The file contains **5,268** valid human-labeled records: **2,605 gated** and **2,663 open** AOIs. Invalid or uncertain labels (`-1` or blank) from the internal annotation sheets are excluded.
 
+The `splits/` folder contains the five fixed official benchmark splits referenced in Supplementary Sec. D.4 of the ECCV camera-ready paper. Each split file provides anonymous `record_id` lists for `train`, `validation`, and `test`.
+
 ## Public Fields
 
 - `record_id`: stable anonymous record ID.

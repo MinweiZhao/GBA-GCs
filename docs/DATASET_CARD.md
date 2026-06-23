@@ -22,6 +22,7 @@ The ECCV paper reports the original 37,444-AOI mainland GBA benchmark, which is 
 - Maintained mainland public rows: 46,747
 - Separate Hong Kong/Macao transfer-diagnostic rows: 10,323
 - Public anonymized Guangzhou expert evaluation labels: 5,268 georeferenced records (2,605 gated / 2,663 open)
+- Official Guangzhou benchmark splits: five fixed stratified splits released as anonymous `record_id` lists under `data/guangzhou_human_eval/splits/`
 - Total public rows across both CSV files: 57,070
 - Hong Kong diagnostic rows: 10,186
 - Macao diagnostic rows: 137

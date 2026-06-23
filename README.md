@@ -38,6 +38,7 @@ GBA-GCs is a public, boundary-free release built from the paper dataset and opti
 - `data/paper_v1/manifest.json`: checksums and relationship between `paper_v1`, the maintained public table, and controlled access.
 - `data/paper_v1/paper_v1_city_summary.csv`: city-level summary for the stable paper-count public table.
 - `data/guangzhou_human_eval/guangzhou_human_eval_public_labels.csv`: public anonymized Guangzhou expert evaluation labels with WGS84 centroids (**5,268** AOIs: 2,605 gated / 2,663 open).
+- `data/guangzhou_human_eval/splits/`: five fixed official Guangzhou benchmark splits used for camera-ready reproducibility (`train` / `validation` / `test` record ID lists).
 - `data/gba_gcs_mainland_public_georeferenced.csv`: georeferenced boundary-free labels and coarse attribute bins for the mainland GBA benchmark.
 - `data/hk_macao_transfer_diagnostics_public_georeferenced.csv`: separate georeferenced Hong Kong and Macao transfer-diagnostic rows.
 - `metadata/city_summary.csv`: city-level counts.
@@ -86,6 +87,8 @@ Maintained mainland public table: **46,747** mainland AOIs.
 Hong Kong/Macao transfer-diagnostic AOIs: **10,323**.
 
 Guangzhou expert evaluation labels: **5,268** public anonymized georeferenced records (**2,605 gated** / **2,663 open**). Raw annotation sheets and linkage fields remain controlled.
+
+Official Guangzhou benchmark splits: five fixed stratified 8:2 train/test splits with a 10% validation subset sampled from the training pool, released under `data/guangzhou_human_eval/splits/`. The split JSON files contain only anonymous public `record_id` lists.
 
 ## Citation
 

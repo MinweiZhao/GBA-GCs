@@ -21,6 +21,7 @@ GUANGZHOU_EVAL_FILE = (
     / "guangzhou_human_eval"
     / "guangzhou_human_eval_public_labels.csv"
 )
+GUANGZHOU_SPLIT_DIR = ROOT / "data" / "guangzhou_human_eval" / "splits"
 REQUIRED_COLUMNS = {
     "aoi_id",
     "city",
@@ -86,6 +87,7 @@ def main() -> None:
     with GUANGZHOU_EVAL_FILE.open(encoding="utf-8", newline="") as f:
         reader = csv.DictReader(f)
         rows = list(reader)
+    gz_record_ids = {row["record_id"] for row in rows}
     gz_counts = {}
     for row in rows:
         gz_counts[row["label"]] = gz_counts.get(row["label"], 0) + 1
@@ -99,6 +101,29 @@ def main() -> None:
             f"expected={expected_gz}"
         )
 
+    split_counts = {}
+    for split_idx in range(1, 6):
+        split_path = GUANGZHOU_SPLIT_DIR / f"guangzhou_split_{split_idx}.json"
+        split = json.loads(split_path.read_text(encoding="utf-8"))
+        parts = {
+            name: set(split["record_id_lists"][name])
+            for name in ("train", "validation", "test")
+        }
+        if parts["train"] & parts["validation"]:
+            raise ValueError(f"{split_path} has train/validation overlap")
+        if parts["train"] & parts["test"]:
+            raise ValueError(f"{split_path} has train/test overlap")
+        if parts["validation"] & parts["test"]:
+            raise ValueError(f"{split_path} has validation/test overlap")
+        observed_ids = parts["train"] | parts["validation"] | parts["test"]
+        if observed_ids != gz_record_ids:
+            raise ValueError(
+                f"{split_path} does not exactly cover Guangzhou public record IDs"
+            )
+        split_counts[f"guangzhou_split_{split_idx}.json"] = {
+            name: len(ids) for name, ids in parts.items()
+        }
+
     print(
         json.dumps(
             {
@@ -107,6 +132,7 @@ def main() -> None:
                 "guangzhou_human_eval": {
                     "rows": len(rows),
                     "label_counts": gz_counts,
+                    "official_splits": split_counts,
                 },
             },
             indent=2,

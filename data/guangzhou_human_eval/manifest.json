@@ -33,5 +33,63 @@
       "rows": 5268,
       "sha256": "3b8cbd1faa7a28d7ee0bac9abe4597d9354a1d2a4964739f000360a3b1938c91"
     }
-  ]
+  ],
+  "official_splits": {
+    "path": "data/guangzhou_human_eval/splits/",
+    "description": "Five fixed official benchmark splits referenced in Supplementary Sec. D.4. Each JSON contains anonymous record_id lists for train, validation, and test.",
+    "split_count": 5,
+    "split_counts_per_file": {
+      "train": 3806,
+      "validation": 412,
+      "test": 1050,
+      "total": 5268
+    },
+    "split_files": [
+      {
+        "path": "data/guangzhou_human_eval/splits/README.md",
+        "bytes": 1074,
+        "sha256": "b1a4444c547abc5a9efd595975ded4e5958c842fb54ba6cadf060703c216f310"
+      },
+      {
+        "path": "data/guangzhou_human_eval/splits/guangzhou_split_1.json",
+        "bytes": 159183,
+        "sha256": "ba511b2bcb64ea19bc807674b5fe6ddf4a30f44b4a6ffe6e825169548ea5ac9d"
+      },
+      {
+        "path": "data/guangzhou_human_eval/splits/guangzhou_split_2.json",
+        "bytes": 159183,
+        "sha256": "7e58c06b0fd9a86ad31bea8306657c3b03fabf99f5449ec3714834aaeadda94f"
+      },
+      {
+        "path": "data/guangzhou_human_eval/splits/guangzhou_split_3.json",
+        "bytes": 159183,
+        "sha256": "22a63e00241741f0a57ec555dc9fba257d80689022e6bebc4be6a275d738d63f"
+      },
+      {
+        "path": "data/guangzhou_human_eval/splits/guangzhou_split_4.json",
+        "bytes": 159183,
+        "sha256": "93c2104eafba130cbcf15af37131081b0cc9fc40dbeaf74459da34a0dafc3eb5"
+      },
+      {
+        "path": "data/guangzhou_human_eval/splits/guangzhou_split_5.json",
+        "bytes": 159183,
+        "sha256": "8454d21f250010ca4be92ab5cc66fb40811fbf31a3719d65f2eb79e9dc4d513b"
+      },
+      {
+        "path": "data/guangzhou_human_eval/splits/guangzhou_split_stratum_summary.csv",
+        "bytes": 69505,
+        "sha256": "cdf5b61ea438dad81f13ae1afe5c4f785c6751d90ce82f6c8deb57f4950c7b0f"
+      },
+      {
+        "path": "data/guangzhou_human_eval/splits/guangzhou_split_summary.csv",
+        "bytes": 694,
+        "sha256": "e522c278575b5e580a51587d7c115aff4ed3e0583b5a159ecd95057392972e20"
+      },
+      {
+        "path": "data/guangzhou_human_eval/splits/manifest.json",
+        "bytes": 2488,
+        "sha256": "15c308665b8daebe17df0a9210cbeaf85ab394797f94976cce5b6ec17f0b5064"
+      }
+    ]
+  }
 }
