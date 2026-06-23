@@ -1,0 +1,37 @@
+{
+  "name": "GBA-GCs Guangzhou human evaluation public labels",
+  "version": "eccv2026_guangzhou_eval_public_anonymized_v1",
+  "rows": 5268,
+  "label_counts": {
+    "gated": 2605,
+    "open": 2663
+  },
+  "relationship_to_paper": "Matches the Guangzhou expert-annotated evaluation split reported in the ECCV 2026 paper: 5,268 valid AOIs, including 2,605 gated and 2,663 open records.",
+  "public_fields": [
+    "record_id",
+    "subset_id",
+    "centroid_lon",
+    "centroid_lat",
+    "label_binary",
+    "label",
+    "annotation_scope",
+    "public_fields_excluded"
+  ],
+  "georeferencing": "centroid_lon and centroid_lat are WGS84 centroid coordinates provided for public georeferencing and reconstruction; exact AOI polygons and addresses are not public.",
+  "excluded_fields": [
+    "community names",
+    "addresses",
+    "AOI polygons/geometries",
+    "imagery links",
+    "provider identifiers",
+    "raw provider metadata"
+  ],
+  "source_processing": "Derived from the internal Guangzhou human annotation sheets by dropping invalid/uncertain labels (-1 or blank), replacing source filenames with stable anonymous record IDs, and retaining WGS84 centroid coordinates for georeferencing.",
+  "files": [
+    {
+      "path": "data/guangzhou_human_eval/guangzhou_human_eval_public_labels.csv",
+      "rows": 5268,
+      "sha256": "3b8cbd1faa7a28d7ee0bac9abe4597d9354a1d2a4964739f000360a3b1938c91"
+    }
+  ]
+}

@@ -20,7 +20,7 @@ Researchers who need the full controlled dataset should use the separate Control
 
 https://github.com/MinweiZhao/GBA-GCs-Controlled-Access
 
-The controlled access path covers non-public components that are intentionally not redistributed here, including AOI boundaries, community names, provider identifiers when present, raw remote-sensing image chips, provider-derived metadata, Guangzhou human-labeled data, and Hong Kong/Macao controlled diagnostic components. To request access, review the access policy, fill in the request form, sign the non-commercial DUA, and submit the materials to `m.zhao@connect.hkust-gz.edu.cn`. Approved archives are distributed through controlled storage, not public GitHub.
+The controlled access path covers non-public components that are intentionally not redistributed here, including AOI boundaries, community names, provider identifiers when present, raw remote-sensing image chips, provider-derived metadata, raw Guangzhou annotation sheets and linkage fields, and Hong Kong/Macao controlled diagnostic components. To request access, review the access policy, fill in the request form, sign the non-commercial DUA, and submit the materials to `m.zhao@connect.hkust-gz.edu.cn`. Approved archives are distributed through controlled storage, not public GitHub.
 
 The controlled repository also includes a small de-identified `data_sample/` preview with JSON metadata, local AOI geometry, and low-resolution remote-sensing thumbnails so requesters can understand the structure of the data available after approval.
 
@@ -37,6 +37,7 @@ GBA-GCs is a public, boundary-free release built from the paper dataset and opti
 - `data/paper_v1/gba_gcs_paper_v1_public_georeferenced.csv`: stable public paper-count table for the ECCV 2026 benchmark release (**37,444** mainland GBA AOIs).
 - `data/paper_v1/manifest.json`: checksums and relationship between `paper_v1`, the maintained public table, and controlled access.
 - `data/paper_v1/paper_v1_city_summary.csv`: city-level summary for the stable paper-count public table.
+- `data/guangzhou_human_eval/guangzhou_human_eval_public_labels.csv`: public anonymized Guangzhou expert evaluation labels with WGS84 centroids (**5,268** AOIs: 2,605 gated / 2,663 open).
 - `data/gba_gcs_mainland_public_georeferenced.csv`: georeferenced boundary-free labels and coarse attribute bins for the mainland GBA benchmark.
 - `data/hk_macao_transfer_diagnostics_public_georeferenced.csv`: separate georeferenced Hong Kong and Macao transfer-diagnostic rows.
 - `metadata/city_summary.csv`: city-level counts.
@@ -84,13 +85,15 @@ Maintained mainland public table: **46,747** mainland AOIs.
 
 Hong Kong/Macao transfer-diagnostic AOIs: **10,323**.
 
+Guangzhou expert evaluation labels: **5,268** public anonymized georeferenced records (**2,605 gated** / **2,663 open**). Raw annotation sheets and linkage fields remain controlled.
+
 ## Citation
 
 If you use this release, cite the ECCV 2026 paper above. A BibTeX entry will be added after the official proceedings metadata is available.
 
 ## License And Access
 
-This public georeferenced release is provided for non-commercial research and reproducibility. Controlled components, including AOI boundaries, names, raw imagery, provider metadata, and human-labeled controlled subsets, are not redistributed in this public repository.
+This public georeferenced release is provided for non-commercial research and reproducibility. Controlled components, including AOI boundaries, names, raw imagery, provider metadata, raw annotation sheets, and linkage fields, are not redistributed in this public repository.
 
 For access to controlled components, use the Controlled Access repository:
 

@@ -21,6 +21,7 @@ The ECCV paper reports the original 37,444-AOI mainland GBA benchmark, which is 
 - Paper-count public benchmark rows: 37,444 mainland GBA AOIs (`data/paper_v1/`)
 - Maintained mainland public rows: 46,747
 - Separate Hong Kong/Macao transfer-diagnostic rows: 10,323
+- Public anonymized Guangzhou expert evaluation labels: 5,268 georeferenced records (2,605 gated / 2,663 open)
 - Total public rows across both CSV files: 57,070
 - Hong Kong diagnostic rows: 10,186
 - Macao diagnostic rows: 137
@@ -28,7 +29,7 @@ The ECCV paper reports the original 37,444-AOI mainland GBA benchmark, which is 
 
 ## Not Publicly Released
 
-The public repository excludes community names, addresses, provider UIDs/OSM IDs, AOI polygons, image chips, and raw map-provider metadata. These fields are sensitive for residential privacy and may also be constrained by third-party data terms.
+The public repository excludes community names, addresses, provider UIDs/OSM IDs, AOI polygons, image chips, raw map-provider metadata, raw annotation sheets, and linkage fields. The public Guangzhou evaluation file contains anonymous record IDs, subset IDs, WGS84 centroid coordinates, and gated/open labels. Restricted fields are sensitive for residential privacy and may also be constrained by third-party data terms.
 
 ## Georeferencing Notice
 

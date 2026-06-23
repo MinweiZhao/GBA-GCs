@@ -37,7 +37,9 @@
     "provider UIDs and OSM IDs",
     "AOI boundary geometries",
     "raw satellite or aerial image chips",
-    "raw third-party provider metadata"
+    "raw third-party provider metadata",
+    "raw annotation sheets",
+    "annotation linkage fields"
   ],
   "source_summaries": [
     {
@@ -107,5 +109,15 @@
       "generated_at": "2025-11-12T06:49:52.935159Z"
     }
   ],
-  "missing_sample_json": []
+  "missing_sample_json": [],
+  "guangzhou_human_eval_public_labels": {
+    "path": "data/guangzhou_human_eval/guangzhou_human_eval_public_labels.csv",
+    "rows": 5268,
+    "label_counts": {
+      "gated": 2605,
+      "open": 2663
+    },
+    "sha256": "3b8cbd1faa7a28d7ee0bac9abe4597d9354a1d2a4964739f000360a3b1938c91",
+    "note": "Public anonymized georeferenced labels for the Guangzhou expert evaluation split. The file includes WGS84 centroid coordinates for georeferencing; raw annotation sheets, names, addresses, imagery links, provider metadata, and AOI geometries are excluded from public release."
+  }
 }
