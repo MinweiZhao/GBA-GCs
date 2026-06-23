@@ -131,7 +131,7 @@ sha256sum trimodal_io_fused_gba_full.pth
 See `model/CHECKPOINTS.md` and `model/MODEL_CARD.md` before use.
 
 <p align="center">
-  <img src="assets/ccf_block.png" alt="MCGC cross-modal fusion block" width="70%">
+  <img src="assets/ccf_block_white.png" alt="MCGC cross-modal fusion block" width="70%">
 </p>
 
 MCGC inputs:
