@@ -13,7 +13,14 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA_FILES = [
     ROOT / "data" / "gba_gcs_mainland_public_georeferenced.csv",
     ROOT / "data" / "hk_macao_transfer_diagnostics_public_georeferenced.csv",
+    ROOT / "data" / "paper_v1" / "gba_gcs_paper_v1_public_georeferenced.csv",
 ]
+GUANGZHOU_EVAL_FILE = (
+    ROOT
+    / "data"
+    / "guangzhou_human_eval"
+    / "guangzhou_human_eval_public_labels.csv"
+)
 REQUIRED_COLUMNS = {
     "aoi_id",
     "city",
@@ -65,13 +72,46 @@ def validate_csv(path: Path) -> int:
 def main() -> None:
     counts = {path.name: validate_csv(path) for path in DATA_FILES}
     manifest = json.loads((ROOT / "metadata" / "manifest.json").read_text(encoding="utf-8"))
+    paper_manifest = json.loads(
+        (ROOT / "data" / "paper_v1" / "manifest.json").read_text(encoding="utf-8")
+    )
     expected = {
         "gba_gcs_mainland_public_georeferenced.csv": manifest["mainland_benchmark_aoi"],
         "hk_macao_transfer_diagnostics_public_georeferenced.csv": manifest["hk_macao_transfer_diagnostic_aoi"],
+        "gba_gcs_paper_v1_public_georeferenced.csv": paper_manifest["rows"],
     }
     if counts != expected:
         raise ValueError(f"count mismatch: observed={counts}, expected={expected}")
-    print(json.dumps({"status": "pass", "counts": counts}, indent=2))
+
+    with GUANGZHOU_EVAL_FILE.open(encoding="utf-8", newline="") as f:
+        reader = csv.DictReader(f)
+        rows = list(reader)
+    gz_counts = {}
+    for row in rows:
+        gz_counts[row["label"]] = gz_counts.get(row["label"], 0) + 1
+        if not row["centroid_lon"] or not row["centroid_lat"]:
+            raise ValueError(f"{GUANGZHOU_EVAL_FILE} has rows missing georeference")
+    expected_gz = manifest["guangzhou_human_eval_public_labels"]
+    if len(rows) != expected_gz["rows"] or gz_counts != expected_gz["label_counts"]:
+        raise ValueError(
+            "Guangzhou label mismatch: "
+            f"observed={{'rows': {len(rows)}, 'label_counts': {gz_counts}}}, "
+            f"expected={expected_gz}"
+        )
+
+    print(
+        json.dumps(
+            {
+                "status": "pass",
+                "counts": counts,
+                "guangzhou_human_eval": {
+                    "rows": len(rows),
+                    "label_counts": gz_counts,
+                },
+            },
+            indent=2,
+        )
+    )
 
 
 if __name__ == "__main__":
