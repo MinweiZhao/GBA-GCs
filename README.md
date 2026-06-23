@@ -4,15 +4,13 @@ This repository contains the public, ethics-first release for the ECCV 2026 prov
 
 **Urban Boundaries, Social Barriers: A Benchmark and Vision-Centric Framework for Mapping Gated Communities and Equity Implications** (Submission #11296).
 
-This repository is a maintained release built from the ECCV paper dataset and further refined after acceptance.
-
-**Version note.** The ECCV paper reports the original **37,444-AOI mainland GBA benchmark**. For stable citation and camera-ready compliance, this repository now provides a paper-count public version at `data/paper_v1/`. The main public CSV remains a maintained/expanded release with additional non-sensitive AOI records, and Hong Kong/Macao are provided separately as diagnostic transfer tables. Paper results should be compared against the `paper_v1` benchmark description, while newer repository files should be treated as maintained extensions.
+This repository is a maintained release built from the ECCV paper dataset and further refined after acceptance. The **37,444-AOI** `data/paper_v1/` table is the stable paper version; for new use or citation, we recommend the latest expanded release because it contains the paper benchmark plus additional AOIs, while keeping the same data structure and processing workflow described in the paper.
 
 <p align="center">
   <img src="assets/teaser_figure_eccv_2.png" alt="GBA-GCs teaser figure" width="95%">
 </p>
 
-The public release provides gated/open labels, centroid coordinates, area, and coarse non-identifying attributes. The frozen paper-count table contains **37,444** mainland residential AOIs in China's Greater Bay Area. The maintained mainland table currently contains **46,747** AOIs, and Hong Kong/Macao are provided as a separate **10,323** AOI transfer-diagnostic file, not mixed into the paper benchmark. The release is designed to support benchmark transparency and reconstruction while reducing risks from releasing precise residential boundaries, addresses, community names, raw map-provider metadata, or imagery.
+The latest public release provides gated/open labels, centroid coordinates, area, and coarse non-identifying attributes for **46,747** mainland residential AOIs in China's Greater Bay Area. Hong Kong/Macao are provided as a separate **10,323** AOI transfer-diagnostic file. The release supports benchmark transparency and reconstruction while reducing risks from releasing precise residential boundaries, addresses, community names, raw map-provider metadata, or imagery.
 
 ## Access Tiers
 
