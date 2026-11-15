@@ -34,10 +34,10 @@ from datasets import load_dataset
 
 # Default: maintained mainland table, 46,747 model-predicted records.
 dataset = load_dataset("__HF_NAMESPACE__/GBA-GCs")
-print(dataset["all"][0])
+print(dataset["data"][0])
 
 # Paper-count stable public subset.
-paper = load_dataset("__HF_NAMESPACE__/GBA-GCs", "paper_v1", split="all")
+paper = load_dataset("__HF_NAMESPACE__/GBA-GCs", "paper_v1", split="data")
 
 # One of five official expert-labeled Guangzhou benchmark splits.
 benchmark = load_dataset("__HF_NAMESPACE__/GBA-GCs", "guangzhou_split_1")
@@ -47,6 +47,8 @@ test = benchmark["test"]
 ```
 
 CSV files and explicit configuration metadata support standard `load_dataset` access and the Hub Dataset Viewer without a custom loading script. Viewer processing happens on the Hub after upload.
+
+The four complete-table configurations use the split name `data`; this name does not imply a training/test partition. The five official Guangzhou configurations use `train`, `validation`, and `test`.
 
 ## Configurations and overlap
 

@@ -139,7 +139,7 @@ def prepare(root, output, namespace):
             target = target_root / (Path(relative).name if relative.startswith("model/") else relative)
             target.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(root / relative, target)
-        configs = {name: {"all": {"path": relative, "rows": count}}
+        configs = {name: {"data": {"path": relative, "rows": count}}
                    for name, (relative, count) in BASE_TABLES.items()}
         for index in range(1, 6):
             name = f"guangzhou_split_{index}"
@@ -208,11 +208,26 @@ def verify(output):
         if "__HF_NAMESPACE__" in (folder / "README.md").read_text(encoding="utf-8"):
             raise ValueError("Unresolved HF namespace in card.")
     for parts in manifest["configs"].values():
+        if any(part.lower() == "all" for part in parts):
+            raise ValueError("'all' is reserved by datasets; use a concrete split name.")
         for info in parts.values():
             if len(read_rows(output / "dataset" / info["path"])[1]) != info["rows"]:
                 raise ValueError("Prepared CSV row count mismatch.")
     print("Verified 9 dataset configurations, source checksums, and upload file boundary.")
     return manifest
+
+
+def verify_loader(output, manifest):
+    from datasets import load_dataset
+
+    for name, parts in manifest["configs"].items():
+        loaded = load_dataset(str((output / "dataset").resolve()), name)
+        if set(loaded) != set(parts):
+            raise ValueError(f"Local loader split names differ for {name}.")
+        for part, info in parts.items():
+            if len(loaded[part]) != info["rows"]:
+                raise ValueError(f"Local loader row count differs for {name}/{part}.")
+    print("Loaded all 9 configurations locally with datasets.")
 
 
 def add_checkpoint(output, local_path, download):
@@ -244,6 +259,7 @@ def publish(output, local_checkpoint, download):
 
     api = HfApi()
     api.whoami()  # Fail before a large download if local authentication is missing.
+    verify_loader(output, manifest)
     for key, kind in (("dataset_repo", "dataset"), ("model_repo", "model")):
         try:
             info = api.repo_info(repo_id=manifest[key], repo_type=kind)
@@ -307,6 +323,8 @@ def main():
     for name in ("verify", "publish"):
         sub = commands.add_parser(name)
         sub.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
+        if name == "verify":
+            sub.add_argument("--load", action="store_true", help="Also load all configs using datasets.")
         if name == "publish":
             group = sub.add_mutually_exclusive_group()
             group.add_argument("--checkpoint", type=Path)
@@ -316,7 +334,9 @@ def main():
         if args.command == "prepare":
             prepare(args.source_root.resolve(), args.output.resolve(), args.namespace)
         elif args.command == "verify":
-            verify(args.output.resolve())
+            manifest = verify(args.output.resolve())
+            if args.load:
+                verify_loader(args.output.resolve(), manifest)
         else:
             publish(args.output.resolve(), args.checkpoint, args.download_checkpoint)
     except (ValueError, OSError) as error:

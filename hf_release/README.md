@@ -23,12 +23,14 @@ hf auth login
 
 ```bash
 python hf_release/publish.py prepare --namespace YOUR_HF_USERNAME
-python hf_release/publish.py verify
+python hf_release/publish.py verify --load
 ```
 
 默认输出 `.hf-release/`。准备步骤仅使用标准库，不需要登录，也不会上传。它校验公开来源文件的固定 SHA-256、记录数量、重复 ID、官方划分互斥性和完整覆盖，然后生成数据集卡、模型卡、原始公开数据副本、五组官方 CSV 划分和发布清单。查看 `.hf-release/dataset/README.md` 与 `.hf-release/model/README.md` 即可审阅最终页面文本。
 
-`mainland` 是默认配置，使用 `all` 分区；`paper_v1` 是与论文数量一致的确定性公开子集，不能直接宣称是原始受控数据的逐条复制；`hk_macao` 是迁移诊断；广州人工标注和五组官方划分有单独配置。扩展版、子集和五组重复使用的标注数据不能相加作为独立样本数量。
+`mainland` 是默认配置，完整数据表使用 `data` 分区，不暗示训练用途；`all` 是 datasets 的保留名称，不可用作实际分区名。`paper_v1` 是与论文数量一致的确定性公开子集，不能直接宣称是原始受控数据的逐条复制；`hk_macao` 是迁移诊断；广州人工标注和五组官方划分有单独配置。扩展版、子集和五组重复使用的标注数据不能相加作为独立样本数量。
+
+`verify --load` 还会调用已安装的 datasets 库，从本机发布目录实际加载全部九个配置；不带 `--load` 的 `verify` 只运行标准库校验。发布命令也会在传输模型前执行本机加载检查。
 
 ## 4. 上传两个公开仓库并检查加载
 
