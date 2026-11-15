@@ -3,6 +3,7 @@ __pycache__/
 *.pyc
 *.tmp
 *.log
+.hf-release/
 
 # Do not commit controlled or raw data by mistake.
 data_archives/

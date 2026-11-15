@@ -1,0 +1,33 @@
+{
+  "source_repository": "MinweiZhao/GBA-GCs",
+  "source_revision": "5db26237a66146b1f521033f894120b1082da423",
+  "files": {
+    "LICENSE-DATA.txt": "5308f44892ac67fcba80560e337401485049547b27da5d498d15114c30d35a72",
+    "data/gba_gcs_mainland_public_georeferenced.csv": "caf574224a0a650110267871ad25b93851844f4b546e21b33e322b88b4eae6e6",
+    "data/guangzhou_human_eval/README.md": "af0fb589a8f25e38bf73e4abffeedb8353ea3e70be1ce9b8f3706792b68c845e",
+    "data/guangzhou_human_eval/guangzhou_human_eval_public_labels.csv": "3b8cbd1faa7a28d7ee0bac9abe4597d9354a1d2a4964739f000360a3b1938c91",
+    "data/guangzhou_human_eval/manifest.json": "37c6e8849005a672a0b7266e3cc9d596cab313ee20a78dc4ac99d567d4946c21",
+    "data/guangzhou_human_eval/splits/README.md": "b1a4444c547abc5a9efd595975ded4e5958c842fb54ba6cadf060703c216f310",
+    "data/guangzhou_human_eval/splits/guangzhou_split_1.json": "ba511b2bcb64ea19bc807674b5fe6ddf4a30f44b4a6ffe6e825169548ea5ac9d",
+    "data/guangzhou_human_eval/splits/guangzhou_split_2.json": "7e58c06b0fd9a86ad31bea8306657c3b03fabf99f5449ec3714834aaeadda94f",
+    "data/guangzhou_human_eval/splits/guangzhou_split_3.json": "22a63e00241741f0a57ec555dc9fba257d80689022e6bebc4be6a275d738d63f",
+    "data/guangzhou_human_eval/splits/guangzhou_split_4.json": "93c2104eafba130cbcf15af37131081b0cc9fc40dbeaf74459da34a0dafc3eb5",
+    "data/guangzhou_human_eval/splits/guangzhou_split_5.json": "8454d21f250010ca4be92ab5cc66fb40811fbf31a3719d65f2eb79e9dc4d513b",
+    "data/guangzhou_human_eval/splits/guangzhou_split_stratum_summary.csv": "cdf5b61ea438dad81f13ae1afe5c4f785c6751d90ce82f6c8deb57f4950c7b0f",
+    "data/guangzhou_human_eval/splits/guangzhou_split_summary.csv": "e522c278575b5e580a51587d7c115aff4ed3e0583b5a159ecd95057392972e20",
+    "data/guangzhou_human_eval/splits/manifest.json": "15c308665b8daebe17df0a9210cbeaf85ab394797f94976cce5b6ec17f0b5064",
+    "data/hk_macao_transfer_diagnostics_public_georeferenced.csv": "1baffcd9adfcd8b80ccb86f7c58582cf85f9491bd739b89136603b2bb03801cd",
+    "data/paper_v1/README.md": "d387b16ef1f281941ef4b2adaf57a22808c971f8f0959cbd757f36520d02aeeb",
+    "data/paper_v1/gba_gcs_paper_v1_public_georeferenced.csv": "240409f037930fabc37da1498d930304acdaa02e53df40e7c7dd7cebf5aa43c0",
+    "data/paper_v1/manifest.json": "c785f4e08edfe41f5fd7043c4fa1caf3a641880e1598750cc2f74db256093c61",
+    "data/paper_v1/paper_v1_city_summary.csv": "f605a69d16562cc74008121d3dbc65eae682b8f53411d1b7336f9b6222fcc3c5",
+    "docs/DATASET_CARD.md": "8f50691be4f01972dcb61c8f7b514c489e2893bfa4a8ca17ca6b550aa5ac6cf1",
+    "docs/ETHICS_AND_ACCESS.md": "13fcc75bf2687b975bc8b9769e8ce675c4eb01d5028c3ad66cd7d58500b1c402",
+    "docs/RECONSTRUCTION_WORKFLOWS.md": "21f2a1e3637269a8c7b9d30aca26c1568a203de8a637051cabab67ce972d91f5",
+    "metadata/city_summary.csv": "26a362ad91eff6328dec1856386e522d693441e4bf02583b5e1299adb391d27e",
+    "metadata/manifest.json": "12471ace2189eee85b9654b6d7a416b5e4b7a40d9345cafb9e9e3bee4d77b0d7",
+    "metadata/public_release_audit.json": "a01d857c9f4f1070142b947afccbd5577f9203a6329d60c4359e814fe7a6f617",
+    "model/CHECKPOINTS.md": "bf06e256bf2064fa159d389178b6893d84adfcd43a4724288dca71b21fed91f7",
+    "model/MODEL_CARD.md": "6c284ca0b6399f74f52570988369479856b7f8848432efb6561091947e2fac51"
+  }
+}
