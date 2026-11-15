@@ -155,3 +155,7 @@ PYTHONPATH=. python examples/run_mcgc_inference.py \
   --image_tensor example_image_tensor.pt \
   --output prediction.json
 ```
+
+## Hugging Face Release Preparation
+
+The [`hf_release/`](hf_release/README.md) directory provides dataset/model cards and a checked preparation/upload workflow for separate Hugging Face dataset and checkpoint repositories. It preserves the existing public-data license and controlled-access scope, materializes all five official Guangzhou splits, and uses `hf_hub_download` for the original MCGC checkpoint. The current lightweight reference model is not a verified loader for the paper checkpoint. Hub publication and paper authorship claiming remain pending until a Hugging Face account is set up and the uploads are verified.
